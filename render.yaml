@@ -7,7 +7,4 @@ services:
     startCommand: node server.js
     envVars:
       - key: GEMINI_API_KEY
-        scope: build
-      - key: PORT
-        value: 3000
         scope: runtime
