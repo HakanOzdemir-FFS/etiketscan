@@ -1,0 +1,76 @@
+===== TEST LABEL 1: Migros (with discount) =====
+MlGROS
+Sütaş Tam Yağlı Süt 1L
+İndirimli: 7,50 TL
+Normal Fiyat: 9,95 TL
+Adet
+
+Expected output:
+{
+  "market": "migros",
+  "product_name": "Sütaş Tam Yağlı Süt 1L",
+  "price": 9.95,
+  "discounted_price": 7.50,
+  "unit": "adet"
+}
+
+===== TEST LABEL 2: A101 (with discount) =====
+a101
+Eti Puf Çikolata 40g
+Fiyat: 12.50TL
+Eski Fiyat: 15.00TL
+adet
+
+Expected output:
+{
+  "market": "a101",
+  "product_name": "Eti Puf Çikolata 40g",
+  "price": 15.00,
+  "discounted_price": 12.50,
+  "unit": "adet"
+}
+
+===== TEST LABEL 3: Generic / kg =====
+Organik Domates
+4,99 TL/kg
+Sebze & Meyve
+kg
+
+Expected output:
+{
+  "market": "generic",
+  "product_name": "Organik Domates",
+  "price": 4.99,
+  "discounted_price": null,
+  "unit": "kg"
+}
+
+===== TEST LABEL 4: No price (edge case) =====
+BİM
+Fırın Ekmeği
+adet
+
+Expected output:
+{
+  "market": "generic",
+  "product_name": "Fırın Ekmeği",
+  "price": null,
+  "discounted_price": null,
+  "unit": "adet",
+  "error": "no_price_found"
+}
+
+===== TEST LABEL 5: Multiple prices, no label =====
+Lipton Ice Tea Şeftali 1.5L
+3,75 TL
+5,25 TL
+lt
+
+Expected output:
+{
+  "market": "generic",
+  "product_name": "Lipton Ice Tea Şeftali 1.5L",
+  "price": 5.25,
+  "discounted_price": 3.75,
+  "unit": "litre"
+}
