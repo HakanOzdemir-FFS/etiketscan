@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: etiket-scan-backend
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: GEMINI_API_KEY
+        scope: build
+      - key: PORT
+        value: 3000
+        scope: runtime
